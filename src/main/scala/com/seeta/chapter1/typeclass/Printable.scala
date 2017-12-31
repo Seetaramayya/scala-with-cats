@@ -1,6 +1,6 @@
 package com.seeta.chapter1.typeclass
 
-import com.seeta.Person
+import com.seeta.{Person, personToString}
 
 
 /**
@@ -20,7 +20,6 @@ object PrintableInstances {
   implicit val stringPrintable: Printable[String] = (value: String) => value
   implicit val intPrintable: Printable[Int] = (value: Int) => s"Int = $value"
 
-  def personToString(p: Person): String = s"${p.name} is a ${p.age} year old ${p.color} person."
   implicit val personPrintable: Printable[Person] = personToString
 }
 
