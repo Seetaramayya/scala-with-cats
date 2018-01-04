@@ -10,3 +10,25 @@ cat word is too much over loaded so I have changed model data from `Cat` to `Per
  - Cats Show
  - Cats Eq
  - Variance
+ 
+# Chapter 2 (Monoids & Semigroups)
+
+  `Monoid` has a associate binary addition (or combine) and an identity
+element. 
+
+  `Semigroup` has only associative binary addition. 
+  
+  Simple definition:
+  
+  ```
+  trait Semigroup[A] {
+    def combine(a: A, b: A): A
+  }
+  
+  trait Monoid[A] extends Semigroup[A] {
+    def empty: A
+  }
+  ```
+  
+  For example positive integers are `semigroup` not `monoid`. With zero element it 
+is a `monoid`
