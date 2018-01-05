@@ -32,3 +32,8 @@ element.
   
   For example positive integers are `semigroup` not `monoid`. With zero element it 
 is a `monoid`
+
+
+# Chapter 3 (Functors)
+
+  `Functor` is a type `F[A]` with an operation map with type `(A => B) => F[B]`
