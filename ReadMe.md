@@ -37,3 +37,14 @@ is a `monoid`
 # Chapter 3 (Functors)
 
   `Functor` is a type `F[A]` with an operation map with type `(A => B) => F[B]`
+  
+  `Functor` laws are 
+
+  - __Identity__ : calling map with identity function is same as doing nothing
+  - __Composition__ : mapping with two functions f and g is the same as 
+  mapping with f and then mapping with g
+  
+# Resources 
+
+- [Type Constructors, Functors, and Kind Projector](https://www.youtube.com/watch?v=Dsd4pc99FSY)
+- [Higher-kinded types](https://typelevel.org/blog/2016/08/21/hkts-moving-forward.html)
