@@ -4,14 +4,14 @@ I am writing notes to myself when I am reading book called [scala with cats](htt
 cat word is too much over loaded so I have changed model data from `Cat` to `Person` 
  
 
-# Chapter 1 (Introduction)
+### Chapter 1 (Introduction)
 
  - Type classes
  - Cats Show
  - Cats Eq
  - Variance
  
-# Chapter 2 (Monoids & Semigroups)
+### Chapter 2 (Monoids & Semigroups)
 
   `Monoid` has a associate binary addition (or combine) and an identity
 element. 
@@ -34,7 +34,7 @@ element.
 is a `monoid`
 
 
-# Chapter 3 (Functors)
+### Chapter 3 (Functors)
 
   `Functor` is a type `F[A]` with an operation map with type `(A => B) => F[B]`
   
@@ -44,7 +44,7 @@ is a `monoid`
   - __Composition__ : mapping with two functions f and g is the same as 
   mapping with f and then mapping with g
   
-# Resources 
+### Resources 
 
 - [Type Constructors, Functors, and Kind Projector](https://www.youtube.com/watch?v=Dsd4pc99FSY)
 - [Higher-kinded types](https://typelevel.org/blog/2016/08/21/hkts-moving-forward.html)
