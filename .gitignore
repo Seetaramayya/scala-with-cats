@@ -1,8 +1,15 @@
-
+# IDE related
 .idea/
 *.iml
 
+# project unwanted
 target/
+*.class
 
+# SBT related
+.sbtopts
+repositories
+
+# My way of back ups
 *.bkp
 *.bak
