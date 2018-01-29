@@ -25,7 +25,7 @@ object Printable {
 
   // Boolean => String, Printable[Boolean]
   implicit val booleanPrintable: Printable[Boolean] = new Printable[Boolean] {
-    override def format(value: Boolean): String = if(value) "yes" else "no"
+    override def format(value: Boolean): String = if (value) "yes" else "no"
   }
 
   // Box[A] => A, Printable[A] => Printable[Box[A]]

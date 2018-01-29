@@ -10,6 +10,10 @@ cat word is too much over loaded so I have changed model data from `Cat` to `Per
  - Cats Show
  - Cats Eq
  - Variance
+    - Covariance`trait F[+A]` : F[B] is a subtype of F[A] if B is subtype of A 
+    (B is a subtype of A, if we can use value of B anywhere we use the value of A )
+    - Contravariance`trait F[-A]` : F[B] is a subtype of F[A] if A is subtype of B
+    - Novariance`trait F[A]` : F[B] and F[A] are not subtypes what ever the relationship between A and B
  
 ### Chapter 2 (Monoids & Semigroups)
 
