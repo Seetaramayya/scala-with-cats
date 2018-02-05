@@ -48,7 +48,50 @@ is a `monoid`
   - __Composition__ : mapping with two functions f and g is the same as 
   mapping with f and then mapping with g
   
+  ```
+     trait Functor[F[_]] {
+       def map[A, B](fa: F[A])(f: A => B): F[B]
+     }
+     
+     trait Contravariant[F[_]] {
+       def contramap[A, B](fa: F[A])(f: B => A): F[B]
+     }
+     
+     trait Invariant[F[_]] {
+       def imap[A, B](fa: F[A])(f: A => B)(g: B => A): F[B]
+     }
+
+  ```
+  
+  
+### Chapter 4 (Monads)
+
+  A monad is a mechanism for sequencing computations. A simple monadic definition is 
+
+```
+trait Monad[F[_]] {
+  def pure[A](value: A): F[A]
+  def flatMap[A, B](value: F[A])(func: A => F[B]): F[B]
+}
+```
+
+  A monad has 3 laws
+  
+  - __Left Identity__ : calling pure and transforming the result with func is the same as calling func
+  
+  `pure(a).flatMap(func) == func(a)`
+  
+  - __Right Identity__: passing pure to flatMap is the same as doing nothing
+  
+  `m.flatMap(pure) == m`
+  
+  - __Associativity__ : flatMapping over two func ons f and g is the same as flatMapping over f and then flatMapping over g
+  
+  `m.flatMap(f).flatMap(g) == m.flatMap(x => f(x).flatMap(g))`
+  
 ### Resources 
 
 - [Type Constructors, Functors, and Kind Projector](https://www.youtube.com/watch?v=Dsd4pc99FSY)
 - [Higher-kinded types](https://typelevel.org/blog/2016/08/21/hkts-moving-forward.html)
+- [Macros](https://docs.scala-lang.org/overviews/macros/overview.html)
+- [Reflection Overview](https://docs.scala-lang.org/overviews/reflection/overview.html)
