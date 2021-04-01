@@ -2,15 +2,15 @@ name := "scala-with-cats"
 
 version := "1.0"
 
-scalaVersion := "2.12.4"
-val akkaVersion = "2.5.9"
+val catsVersion = "2.1.1"
+val scalaTestVersion = "3.2.7"
 
-scalacOptions += "-Ypartial-unification"
+scalaVersion := "2.13.3"
+
 
 libraryDependencies ++= Seq (
-  "org.typelevel"          %% "cats-core"                 % "1.0.0",
-  "com.typesafe.akka"      %% "akka-stream"               % akkaVersion,
-  "com.typesafe.akka"      %% "akka-stream-testkit"       % akkaVersion         % Test,
-  "org.scalatest"          %% "scalatest"                 % "3.0.1"         % Test
+"org.typelevel"          %% "cats-core"                 % catsVersion,
+"org.scalatest"          %% "scalatest"                 % scalaTestVersion             % Test
 )
-    
+
+scalacOptions ++= Seq("-language:higherKinds")
