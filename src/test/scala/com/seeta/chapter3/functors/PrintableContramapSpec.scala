@@ -1,10 +1,11 @@
 package com.seeta.chapter3.functors
 
 import com.seeta.Box
-import org.scalatest.{Matchers, WordSpec}
+import org.scalatest.matchers.should.Matchers
+import org.scalatest.wordspec.AnyWordSpec
 
 
-class PrintableContramapSpec extends WordSpec with Matchers {
+class PrintableContramapSpec extends AnyWordSpec with Matchers {
 
   "Contramap Printable Functor" should {
     "format string or boolean" in {

@@ -1,17 +1,16 @@
 package com.seeta.chapter2.monoids.cats
 
-import org.scalatest.{Matchers, WordSpec}
-
 import cats.instances.int._
 import cats.instances.string._
 import cats.instances.option._
 import cats.instances.map._
 import cats.instances.tuple._
-
 import cats.syntax.semigroup._
+import org.scalatest.matchers.should.Matchers
+import org.scalatest.wordspec.AnyWordSpec
 
 
-class SuperAdderSpec extends WordSpec with Matchers {
+class SuperAdderSpec extends AnyWordSpec with Matchers {
 
   "SuperAdderSpec" should {
 

@@ -1,8 +1,10 @@
 package com.seeta.chapter4.monad.custom
 
-import org.scalatest.{Matchers, WordSpec}
+import org.scalatest.matchers.should.Matchers
+import org.scalatest.wordspec.AnyWordSpec
 
-class MonadTest extends WordSpec with Matchers {
+
+class MonadTest extends AnyWordSpec with Matchers {
   "Monad" should {
     "verify map of option monad" in {
       val m = new Monad[Option] {

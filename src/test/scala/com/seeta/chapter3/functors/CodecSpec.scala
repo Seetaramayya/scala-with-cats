@@ -1,10 +1,11 @@
 package com.seeta.chapter3.functors
 
 import com.seeta.Box
-import com.seeta.chapter3.functors.Codec.{encode, decode}
-import org.scalatest.{Matchers, WordSpec}
+import com.seeta.chapter3.functors.Codec.{decode, encode}
+import org.scalatest.matchers.should.Matchers
+import org.scalatest.wordspec.AnyWordSpec
 
-class CodecSpec extends WordSpec with Matchers {
+class CodecSpec extends AnyWordSpec with Matchers {
 
   "Codec" should {
     "work" in {

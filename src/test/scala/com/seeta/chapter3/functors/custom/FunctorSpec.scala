@@ -1,8 +1,10 @@
 package com.seeta.chapter3.functors.custom
 
-import org.scalatest.{Matchers, WordSpec}
+import org.scalatest.matchers.should.Matchers
+import org.scalatest.wordspec.AnyWordSpec
 
-class FunctorSpec extends WordSpec with Matchers {
+
+class FunctorSpec extends AnyWordSpec with Matchers {
 
   "Functor" should {
     "execute basic tests" in {
