@@ -4,7 +4,6 @@ import com.seeta.Box
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpec
 
-
 class PrintableContramapSpec extends AnyWordSpec with Matchers {
 
   "Contramap Printable Functor" should {

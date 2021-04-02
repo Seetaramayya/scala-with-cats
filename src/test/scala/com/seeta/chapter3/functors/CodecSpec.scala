@@ -1,7 +1,7 @@
 package com.seeta.chapter3.functors
 
 import com.seeta.Box
-import com.seeta.chapter3.functors.Codec.{decode, encode}
+import com.seeta.chapter3.functors.Codec.{ decode, encode }
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpec
 

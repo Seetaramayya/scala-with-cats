@@ -24,13 +24,9 @@ import com.seeta.Person
  */
 
 object EqCustomInstances {
-  implicit val eqDate: Eq[Date] = Eq.instance[Date] { (date1, date2) =>
-    date1.getTime === date2.getTime
-  }
+  implicit val eqDate: Eq[Date] = Eq.instance[Date] { (date1, date2) => date1.getTime === date2.getTime }
 
-  implicit val eqPerson: Eq[Person] = Eq.instance[Person] { (p1, p2) =>
-    (p1.name === p2.name) && (p1.age === p2.age) && (p1.color === p2.color)
-  }
+  implicit val eqPerson: Eq[Person] = Eq.instance[Person] { (p1, p2) => (p1.name === p2.name) && (p1.age === p2.age) && (p1.color === p2.color) }
 }
 
 object CatsEqDemo extends App {

@@ -3,7 +3,6 @@ package com.seeta.chapter4.monad.custom
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpec
 
-
 class MonadTest extends AnyWordSpec with Matchers {
   "Monad" should {
     "verify map of option monad" in {
@@ -11,7 +10,7 @@ class MonadTest extends AnyWordSpec with Matchers {
         override def pure[A](a: A): Option[A] = Some(a)
         override def flatMap[A, B](box: Option[A])(f: (A) => Option[B]): Option[B] = box match {
           case Some(a) => f(a)
-          case None => None
+          case None    => None
         }
       }
 
@@ -23,7 +22,7 @@ class MonadTest extends AnyWordSpec with Matchers {
       val m = new Monad[List] {
         override def pure[A](a: A): List[A] = List(a)
         override def flatMap[A, B](box: List[A])(f: (A) => List[B]): List[B] = box match {
-          case Nil => List()
+          case Nil     => List()
           case x :: xs => f(x) ++ flatMap(xs)(f)
         }
       }

@@ -9,7 +9,6 @@ import cats.syntax.semigroup._
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpec
 
-
 class SuperAdderSpec extends AnyWordSpec with Matchers {
 
   "SuperAdderSpec" should {
