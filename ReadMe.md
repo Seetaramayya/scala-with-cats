@@ -89,6 +89,22 @@ trait Monad[F[_]] {
   
   `m.flatMap(f).flatMap(g) == m.flatMap(x => f(x).flatMap(g))`
   
+
+### Cats Kernel 
+Cats kernel laws.
+  
+|        Name         | Associative? | Commutative? | Identity? | Inverse? | Idempotent? |
+|-------------------- |--------------|--------------|-----------|----------|-------------|
+|Semigroup            |      ✅      |              |           |          |             |
+|CommutativeSemigroup |      ✅      |      ✅      |           |          |             |
+|Monoid               |      ✅      |              |     ✅    |          |             |
+|Band                 |      ✅      |              |           |          |     ✅      |
+|Semilattice          |      ✅      |      ✅      |           |          |     ✅      |
+|Group                |      ✅      |              |    ✅     |    ✅    |             |
+|CommutativeMonoid    |      ✅      |      ✅      |    ✅     |          |             |
+|CommutativeGroup     |      ✅      |      ✅      |    ✅     |    ✅    |             |
+|BoundedSemilattice   |      ✅      |      ✅      |    ✅     |          |     ✅      |
+
 ### Resources 
 
 - [Type Constructors, Functors, and Kind Projector](https://www.youtube.com/watch?v=Dsd4pc99FSY)
