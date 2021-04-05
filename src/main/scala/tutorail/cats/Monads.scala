@@ -3,14 +3,9 @@ package tutorail.cats
 import scala.concurrent.{ ExecutionContext, Future }
 import scala.util.{ Failure, Success, Try }
 
-import cats.Monad //brings Monad Type class definition into the scope
-import cats.instances.option._ //brings type class instances for option
-import cats.instances.try_._ //brings type class instances for try
-import cats.instances.list._ //brings type class instances for list
-import cats.instances.future._ //brings type class instances for future
-
 /**
- * A monad is also higher kind of type class, with `pure` and `flatMap`
+ * A monad is also higher kind of type class, with `pure` and `flatMap`.
+ * Monads extends Functor
  *
  * Definition is something like this
  * {{{
@@ -22,7 +17,33 @@ import cats.instances.future._ //brings type class instances for future
  *
  * More about monads, See [[https://typelevel.org/cats/typeclasses/monad.html]]
  */
+trait SeetaMonad[M[_]] {
+  def pure[A](a: A): M[A]
+  def flatMap[A, B](ma: M[A])(f: A => M[B]): M[B]
+
+  // Exercise: Implement map method
+  def map[A, B](ma: M[A])(f: A => B): M[B] = flatMap(ma)(a => pure(f(a)))
+}
+object SeetaMonad {
+  implicit val optionMonad: SeetaMonad[Option] = new SeetaMonad[Option] {
+    override def pure[A](a: A): Option[A] = Option.apply(a)
+
+    override def flatMap[A, B](ma: Option[A])(f: A => Option[B]): Option[B] = ma.flatMap(a => f(a))
+  }
+
+  def test[M[_], A, B](ma: M[A], mb: M[B])(implicit monad: SeetaMonad[M]): M[(A, B)] = {
+    monad.flatMap(ma) { a => monad.map(mb)(b => (a, b)) }
+  }
+}
 object Monads1 extends App {
+  import cats.Monad //brings Monad Type class definition into the scope
+  import cats.instances.option._ //brings type class instances for option
+  import cats.instances.try_._ //brings type class instances for try
+  import cats.instances.list._ //brings type class instances for list
+  import cats.instances.future._ //brings type class instances for future
+  import cats.syntax.applicative._ // monad `pure` will be brought into the scope. Applicative is weaker monad
+  import cats.syntax.flatMap._ // monad `flatMap` will be brought into the scope
+
   // lists
   val crossProductList = for {
     number <- List(1, 2, 3)
@@ -68,7 +89,26 @@ object Monads1 extends App {
 
   def getPairs[M[_], A, B](ma: M[A], mb: M[B])(implicit monad: Monad[M]): M[(A, B)] = monad.flatMap(ma)(a => monad.map(mb)(b => (a, b)))
 
+  def getParisFor[M[_]: Monad, A, B](ma: M[A], mb: M[B]): M[(A, B)] = {
+    import cats.syntax.functor._ // brings map in to the scope
+    for {
+      a <- ma
+      b <- mb
+    } yield (a, b)
+  }
+
   println(getPairs(Option(1), Option('a')))
   println(getPairs(Try(1), Try('a')))
   println(getPairs(List(1, 2, 3, 4), List('a', 'b')))
+  println(getParisFor(List(1, 2, 3, 4), List('a', 'b')))
+
+  // extension methods imports in the case of monad are different structure
+  // pure extension method will be brought into scope with import cats.syntax.applicative._
+  1.pure[Option] // wraps 1 in Option(1) => Some(1)
+  1.pure[Try]
+  1.pure[List]
+
+  // flatMap can be brought into the scope with import cats.syntax.flatMap._
+  // testing seeta monad
+  println(SeetaMonad.test(Option(1), Option('a'))) // expected answer is Some((1, 'a'))
 }
