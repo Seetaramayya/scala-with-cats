@@ -1,12 +1,13 @@
-package tutorail.cats
+package tutorail.cats.monoids
 
-import cats.Semigroup._ // Semigroup definition
-import cats.instances.int._ // int type class instances
-import cats.instances.string._ // string type class instances
-import cats.instances.option._ // option type class instances
-import cats.instances.map._ // option type class instances
-import cats.Monoid // Monoid typeclass definition. Monoid <: Semigroup
-import cats.syntax.monoid._ // extension methods
+import cats.Semigroup._
+import cats.instances.int._
+import cats.instances.string._
+import cats.instances.option._
+import cats.instances.map._
+import cats.Monoid
+import cats.syntax.monoid._
+import tutorail.cats.{ Data, Expense } // extension methods
 
 // All the above imports can be replaced with import cats._ & import cats.implicits._
 

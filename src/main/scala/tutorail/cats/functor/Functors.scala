@@ -1,4 +1,4 @@
-package tutorail.cats
+package tutorail.cats.functor
 
 import cats.Functor
 import cats.instances.int._
@@ -12,7 +12,6 @@ import scala.util.Try // Extension methods for functor
 
 // All the above imports can be replaced with import cats._ & import cats.implicits._
 
-//
 /**
  * A functor is higher ordered type class. if you provide initial `F` type and a mapping function
  * from an arbitrary type A => B then `map` will transform F[A] => F[B]

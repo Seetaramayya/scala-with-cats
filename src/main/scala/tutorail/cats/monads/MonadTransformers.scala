@@ -1,4 +1,4 @@
-package tutorail.cats
+package tutorail.cats.monads
 
 import java.util.concurrent.Executors
 

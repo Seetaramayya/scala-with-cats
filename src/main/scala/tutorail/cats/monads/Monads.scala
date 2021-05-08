@@ -1,4 +1,4 @@
-package tutorail.cats
+package tutorail.cats.monads
 
 import scala.concurrent.{ ExecutionContext, Future }
 import scala.util.{ Failure, Success, Try }
@@ -36,12 +36,12 @@ object SeetaMonad {
   }
 }
 object Monads1 extends App {
-  import cats.Monad //brings Monad Type class definition into the scope
-  import cats.instances.option._ //brings type class instances for option
-  import cats.instances.try_._ //brings type class instances for try
-  import cats.instances.list._ //brings type class instances for list
-  import cats.instances.future._ //brings type class instances for future
-  import cats.syntax.applicative._ // monad `pure` will be brought into the scope. Applicative is weaker monad
+  import cats.Monad
+  import cats.instances.future._
+  import cats.instances.list._
+  import cats.instances.option._
+  import cats.instances.try_._
+  import cats.syntax.applicative._
   import cats.syntax.flatMap._ // monad `flatMap` will be brought into the scope
 
   // lists

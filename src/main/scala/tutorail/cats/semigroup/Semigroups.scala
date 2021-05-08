@@ -1,10 +1,12 @@
-package tutorail.cats
+package tutorail.cats.semigroup
 
 import cats.Semigroup // Typeclass definition
 import cats.instances.int._ //Typeclass instances for int type
 import cats.instances.string._ //Typeclass instances for string type
 import cats.instances.option._ //Typeclass instances for option type
 import cats.syntax.semigroup._ //Semigroup extension methods are brought into the scope such as combine |+|
+import tutorail.cats.Expense
+import tutorail.cats.Data
 
 /**
  * A semigroup is any set `A` with an __associative__ operation (`combine`).

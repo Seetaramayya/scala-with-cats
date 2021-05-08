@@ -4,6 +4,7 @@ import cats.Functor
 import cats.instances.int._
 import cats.instances.option._
 import tutorail.cats.Tree.{ branch, leaf }
+import tutorail.cats.functor.Functors
 
 trait Tree[+T]
 case class Leaf[+T](value: T) extends Tree[T]
