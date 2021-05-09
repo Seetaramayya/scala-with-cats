@@ -2,9 +2,9 @@ package tutorail.cats.monads
 
 import java.util.concurrent.Executors
 
-import cats.data.OptionT
 import cats.instances.list._
 import cats.instances.future._
+import cats.data.OptionT
 import cats.data.EitherT
 
 import scala.concurrent.{ ExecutionContext, Future }
